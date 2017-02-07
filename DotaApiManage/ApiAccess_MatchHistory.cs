@@ -7,11 +7,9 @@ using System.Collections.Generic;
 
 namespace DotaApiManage.MatchHistory
 {
-    /*
-     * Class for Accessing data from the Dota 2 api Match History
-     *
-     * Loads based on parameters given at creation (User id)
-     */
+    /// <summary>
+    /// Match History api access
+    /// </summary>
     public class ApiAccess
     {
         static HttpClient client = new HttpClient();
@@ -22,7 +20,11 @@ namespace DotaApiManage.MatchHistory
         private string accountID = "";
         private string matches = "";
 
-        // constructor provided with account id and matches
+        /// <summary>
+        /// constructor for init of history retrieve
+        /// </summary>
+        /// <param name="aID">Account ID</param>
+        /// <param name="m">Matches to get</param>
         public ApiAccess(string aID, string m)
         {
             accountID = aID;
@@ -33,7 +35,10 @@ namespace DotaApiManage.MatchHistory
             store = JsonConvert.DeserializeObject<BaseResultSet>(response);
         }
 
-        // constructor provided with account id
+        /// <summary>
+        /// constructor for init of history retrieve
+        /// </summary>
+        /// <param name="aID">Account ID</param>
         public ApiAccess(string aID)
         {
             accountID = aID;
@@ -44,7 +49,12 @@ namespace DotaApiManage.MatchHistory
             store = JsonConvert.DeserializeObject<BaseResultSet>(response);
         }
 
-        // calls the dota 2 web api and returns the given json
+        /// <summary>
+        /// calls the dota 2 web api and returns the given json
+        /// </summary>
+        /// <returns>
+        /// string contaning json
+        /// </returns>
         private string GetApiResponse()
         {
             // set up the api call
@@ -69,7 +79,10 @@ namespace DotaApiManage.MatchHistory
             }
         }
 
-        // returns a list of all the match id's from the active store
+        /// <summary>
+        /// Gets the match id's retrieved
+        /// </summary>
+        /// <returns>string list containing match id's</returns>
         public List<string> GetMatchIds()
         {
             List<string> matchids = new List<string>();

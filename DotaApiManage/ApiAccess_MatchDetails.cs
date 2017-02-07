@@ -8,11 +8,9 @@ using System.Linq;
 
 namespace DotaApiManage.MatchDetails
 {
-    /*
-     * Class for Accessing data from the Dota 2 api Match Details
-     *
-     * Loads based on parameters given at creation (Match id)
-     */
+    /// <summary>
+    /// Match Detail api access
+    /// </summary>
     public class ApiAccess
     {
         static HttpClient client = new HttpClient();
@@ -22,7 +20,10 @@ namespace DotaApiManage.MatchDetails
 
         private string matchID = "";
 
-        // constructor provided with account id and matches
+        /// <summary>
+        /// constructor for init of match retrieve
+        /// </summary>
+        /// <param name="mID">Match ID</param>
         public ApiAccess(string mID)
         {
             matchID = mID;
@@ -32,7 +33,12 @@ namespace DotaApiManage.MatchDetails
             store = JsonConvert.DeserializeObject<BaseResultSet>(response);
         }
 
-        // calls the dota 2 web api and returns the given json
+        /// <summary>
+        /// calls the dota 2 web api and returns the given json
+        /// </summary>
+        /// <returns>
+        /// string contaning json
+        /// </returns>
         private string GetApiResponse()
         {
             // set up the api call
@@ -60,6 +66,7 @@ namespace DotaApiManage.MatchDetails
         /// <summary>
         /// Returns the result of the match (true if radiant won)
         /// </summary>
+        /// <returns>Won</returns>
         public bool result()
         {
             return store.result.radiant_win;
@@ -68,8 +75,8 @@ namespace DotaApiManage.MatchDetails
         /// <summary>
         /// Returns if the player given was on the winning team
         /// </summary>
-        /// <param name="playerid"></param>
-        /// <returns></returns>
+        /// <param name="playerid">Player ID to compare</param>
+        /// <returns>Won</returns>
         public bool playerResult(string playerid)
         {
             try
