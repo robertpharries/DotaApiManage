@@ -1,0 +1,6 @@
+c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\bin\Debug\DotaApiManage.exe.config
+c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\bin\Debug\DotaApiManage.exe
+c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\bin\Debug\DotaApiManage.pdb
+c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.csprojResolveAssemblyReference.cache
+c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.exe
+c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.pdb
