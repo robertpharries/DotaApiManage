@@ -9,7 +9,7 @@ namespace DotaApiManage
         {
             MatchDetails.ApiAccess apia = new MatchDetails.ApiAccess("079");
 
-            Console.WriteLine(apia.playerResult("48767249"));
+            Console.WriteLine(apia.PlayerResult("48767249"));
 
             Console.ReadLine();
         }

@@ -1,5 +1,20 @@
 ﻿using System.Collections.Generic;
 
+namespace DotaApiManage
+{
+    public class Hero
+    {
+        public string name { get; set; }
+        public int id { get; set; }
+        public string localized_name { get; set; }
+    }
+
+    public class BaseHeroSet
+    {
+        public List<Hero> heroes { get; set; }
+    }
+}
+
 namespace DotaApiManage.MatchHistory
 {
     /*

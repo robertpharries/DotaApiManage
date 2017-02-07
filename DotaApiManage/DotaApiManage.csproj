@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ApiAccess_MatchDetails.cs" />
     <Compile Include="ApiAccess_MatchHistory.cs" />
+    <Compile Include="ApiAccess_HeroDetails.cs" />
     <Compile Include="JsonStruct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -67,7 +67,7 @@ namespace DotaApiManage.MatchDetails
         /// Get method for match ID
         /// </summary>
         /// <returns>string</returns>
-        public string getMatchId()
+        public string GetMatchId()
         {
             return store.result.match_id;
         }
@@ -76,7 +76,7 @@ namespace DotaApiManage.MatchDetails
         /// Returns the result of the match (true if radiant won)
         /// </summary>
         /// <returns>Won</returns>
-        public bool result()
+        public bool Result()
         {
             return store.result.radiant_win;
         }
@@ -86,12 +86,12 @@ namespace DotaApiManage.MatchDetails
         /// </summary>
         /// <param name="playerid">Player ID to compare</param>
         /// <returns>Won</returns>
-        public bool playerResult(string playerid)
+        public bool PlayerResult(string playerid)
         {
             try
             {
                 var query = store.result.players.First(Player => Player.account_id == playerid);
-                return (result() && query.player_slot < 50) || (!result() && query.player_slot > 50);
+                return (Result() && query.player_slot < 50) || (!Result() && query.player_slot > 50);
             }
             catch(ArgumentNullException e)
             {
@@ -99,5 +99,91 @@ namespace DotaApiManage.MatchDetails
                 return false;
             }
         }
+
+        /// <summary>
+        /// Returns the hero id of the hero played by the given id
+        /// </summary>
+        /// <param name="playerid">player id</param>
+        /// <returns>int hero id</returns>
+        public int HeroPlayed(string playerid)
+        {
+            try
+            {
+                var query = store.result.players.First(Player => Player.account_id == playerid);
+                return query.hero_id;
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Returns the duration of the match in seconds
+        /// </summary>
+        /// <returns>int duration in seconds</returns>
+        public int GetDuration()
+        {
+            return store.result.duration;
+        }
+
+        /// <summary>
+        /// Returns kills by a given player
+        /// </summary>
+        /// <param name="playerid">player id</param>
+        /// <returns>int of kills</returns>
+        public int GetKillsByPlayer(string playerid)
+        {
+            try
+            {
+                var query = store.result.players.First(Player => Player.account_id == playerid);
+                return query.kills;
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Returns deaths by a given player
+        /// </summary>
+        /// <param name="playerid">player id</param>
+        /// <returns>int of deaths</returns>
+        public int GetDeathsByPlayer(string playerid)
+        {
+            try
+            {
+                var query = store.result.players.First(Player => Player.account_id == playerid);
+                return query.deaths;
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Returns assists by a given player
+        /// </summary>
+        /// <param name="playerid">player id</param>
+        /// <returns>int of assists</returns>
+        public int GetAssistsByPlayer(string playerid)
+        {
+            try
+            {
+                var query = store.result.players.First(Player => Player.account_id == playerid);
+                return query.assists;
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e);
+                return 0;
+            }
+        }
+
     }
 }
