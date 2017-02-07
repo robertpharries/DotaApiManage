@@ -4,40 +4,28 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace DotaApiManage
+namespace DotaApiManage.MatchDetails
 {
     /*
-     * Class for Accessing data from the Dota 2 api
+     * Class for Accessing data from the Dota 2 api Match Details
      *
-     * Loads based on parameters given at creation
+     * Loads based on parameters given at creation (Match id)
      */
-    class ApiAccess
+    public class ApiAccess
     {
         static HttpClient client = new HttpClient();
         static BaseResultSet store;
         // api key
         private string key = "80D9261FF631DE1AE99CB5179E69FF45";
 
-        private string accountID = "";
-        private string matches = "";
+        private string matchID = "";
 
         // constructor provided with account id and matches
-        public ApiAccess(string aID, string m)
+        public ApiAccess(string mID)
         {
-            accountID = aID;
-            matches = m;
-            // get the information from the api
-            string response = GetApiResponse();
-            // turn the given json into an object
-            store = JsonConvert.DeserializeObject<BaseResultSet>(response);
-        }
-
-        // constructor provided with account id
-        public ApiAccess(string aID)
-        {
-            accountID = aID;
-            matches = "25";
+            matchID = mID;
             // get the information from the api
             string response = GetApiResponse();
             // turn the given json into an object
@@ -48,10 +36,10 @@ namespace DotaApiManage
         private string GetApiResponse()
         {
             // set up the api call
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key="+key+"&account_id="+accountID+"&matches_requested="+matches);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?key="+key+"&match_id="+matchID);
             request.Method = "GET";
             request.ContentType = "application/json";
-            
+
             try
             {
                 WebResponse webResponse = request.GetResponse();
@@ -69,17 +57,31 @@ namespace DotaApiManage
             }
         }
 
-        // returns a list of all the match id's from the active store
-        public List<string> GetMatchIds()
+        /// <summary>
+        /// Returns the result of the match (true if radiant won)
+        /// </summary>
+        public bool result()
         {
-            List<string> matchids = new List<string>();
-
-            foreach(var match in store.result.matches)
+            return store.result.radiant_win;
+        }
+        
+        /// <summary>
+        /// Returns if the player given was on the winning team
+        /// </summary>
+        /// <param name="playerid"></param>
+        /// <returns></returns>
+        public bool playerResult(string playerid)
+        {
+            try
             {
-                matchids.Add(match.match_id);
+                var query = store.result.players.First(Player => Player.account_id == playerid);
+                return (result() && query.player_slot < 50) || (!result() && query.player_slot > 50);
             }
-
-            return matchids;
+            catch(ArgumentNullException e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
         }
     }
 }
