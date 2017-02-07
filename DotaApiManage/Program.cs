@@ -1,21 +1,21 @@
 ﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace DotaApiManage
 {
     class Program
     {
-        static HttpClient client = new HttpClient();
-
         static void Main()
         {
-            RunAsync().Wait();
-        }
+            ApiAccess apia = new ApiAccess("48767249", "25");
 
-        static async Task RunAsync()
-        {
-            client.BaseAddress = new Uri()
+            List<string> matchids = apia.GetMatchIds();
+            foreach(var id in matchids)
+            {
+                Console.WriteLine(id);
+            }
+
+            Console.ReadLine();
         }
     }
 }

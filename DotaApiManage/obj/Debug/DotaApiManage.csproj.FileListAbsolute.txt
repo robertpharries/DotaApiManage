@@ -4,3 +4,13 @@ c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManag
 c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.csprojResolveAssemblyReference.cache
 c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.exe
 c:\users\robert\documents\visual studio 2015\Projects\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.pdb
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\bin\Debug\DotaApiManage.exe.config
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.exe
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.pdb
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\bin\Debug\DotaApiManage.exe
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\bin\Debug\DotaApiManage.pdb
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Robert\Documents\GitHub\DotaApiManage\DotaApiManage\obj\Debug\DotaApiManage.csprojResolveAssemblyReference.cache
