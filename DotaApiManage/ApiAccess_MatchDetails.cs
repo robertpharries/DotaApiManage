@@ -14,7 +14,7 @@ namespace DotaApiManage.MatchDetails
     public class ApiAccess
     {
         static HttpClient client = new HttpClient();
-        static BaseResultSet store;
+        private BaseResultSet store;
         // api key
         private string key = "80D9261FF631DE1AE99CB5179E69FF45";
 
@@ -61,6 +61,15 @@ namespace DotaApiManage.MatchDetails
                 Console.WriteLine("Fail: {0}", e.Message);
                 return "";
             }
+        }
+
+        /// <summary>
+        /// Get method for match ID
+        /// </summary>
+        /// <returns>string</returns>
+        public string getMatchId()
+        {
+            return store.result.match_id;
         }
 
         /// <summary>

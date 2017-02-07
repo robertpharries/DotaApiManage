@@ -13,7 +13,7 @@ namespace DotaApiManage.MatchHistory
     public class ApiAccess
     {
         static HttpClient client = new HttpClient();
-        static BaseResultSet store;
+        private BaseResultSet store;
         // api key
         private string key = "80D9261FF631DE1AE99CB5179E69FF45";
 

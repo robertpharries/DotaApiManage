@@ -107,8 +107,8 @@ namespace DotaApiManage.MatchDetails
         public int duration { get; set; }
         public int pre_game_duration { get; set; }
         public int start_time { get; set; }
-        public long match_id { get; set; }
-        public long match_seq_num { get; set; }
+        public string match_id { get; set; }
+        public string match_seq_num { get; set; }
         public int tower_status_radiant { get; set; }
         public int tower_status_dire { get; set; }
         public int barracks_status_radiant { get; set; }
