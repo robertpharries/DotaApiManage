@@ -7,13 +7,9 @@ namespace DotaApiManage
     {
         static void Main()
         {
-            ApiAccess apia = new ApiAccess("48767249", "25");
+            MatchDetails.ApiAccess apia = new MatchDetails.ApiAccess("079");
 
-            List<string> matchids = apia.GetMatchIds();
-            foreach(var id in matchids)
-            {
-                Console.WriteLine(id);
-            }
+            Console.WriteLine(apia.playerResult("48767249"));
 
             Console.ReadLine();
         }
