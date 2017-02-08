@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DotaApiManage
+namespace DotaApiManage.Heroes
 {
     public class Hero
     {
@@ -9,9 +9,16 @@ namespace DotaApiManage
         public string localized_name { get; set; }
     }
 
-    public class BaseHeroSet
+    public class Result
     {
         public List<Hero> heroes { get; set; }
+        public int status { get; set; }
+        public int count { get; set; }
+    }
+
+    public class BaseResultSet
+    {
+        public Result result { get; set; }
     }
 }
 

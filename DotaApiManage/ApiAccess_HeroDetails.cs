@@ -6,12 +6,14 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DotaApiManage
+namespace DotaApiManage.Heroes
 {
     public class HeroDetails
     {
         static HttpClient client = new HttpClient();
-        static BaseHeroSet store = null;
+        static BaseResultSet store = null;
+
+        private string key = "80D9261FF631DE1AE99CB5179E69FF45";
 
         /// <summary>
         /// constructor for init of hero detail retrieve
@@ -23,7 +25,7 @@ namespace DotaApiManage
                 // get the information from the api
                 string response = GetApiResponse();
                 // turn the given json into an object
-                store = JsonConvert.DeserializeObject<BaseHeroSet>(response);
+                store = JsonConvert.DeserializeObject<BaseResultSet>(response);
             }
         }
 
@@ -36,7 +38,7 @@ namespace DotaApiManage
         private string GetApiResponse()
         {
             // set up the api call
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://raw.githubusercontent.com/kronusme/dota2-api/master/data/heroes.json");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.steampowered.com//IEconDOTA2_570/GetHeroes/V001/?key="+key+ "&language=english");
             request.Method = "GET";
             request.ContentType = "application/json";
 
@@ -64,7 +66,7 @@ namespace DotaApiManage
         /// <returns>string name</returns>
         public string GetHeroNameById(int id)
         {
-            var query = store.heroes.First(Hero => Hero.id == id);
+            var query = store.result.heroes.First(Hero => Hero.id == id);
             return query.localized_name;
         }
     }

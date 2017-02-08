@@ -13,7 +13,7 @@ namespace DotaApiManage.MatchHistory
     public class ApiAccess
     {
         static HttpClient client = new HttpClient();
-        private BaseResultSet store;
+        private BaseResultSet store = null;
         // api key
         private string key = "80D9261FF631DE1AE99CB5179E69FF45";
 
@@ -85,14 +85,21 @@ namespace DotaApiManage.MatchHistory
         /// <returns>string list containing match id's</returns>
         public List<string> GetMatchIds()
         {
-            List<string> matchids = new List<string>();
-
-            foreach(var match in store.result.matches)
+            if (store != null)
             {
-                matchids.Add(match.match_id);
-            }
+                List<string> matchids = new List<string>();
 
-            return matchids;
+                foreach (var match in store.result.matches)
+                {
+                    matchids.Add(match.match_id);
+                }
+
+                return matchids;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
